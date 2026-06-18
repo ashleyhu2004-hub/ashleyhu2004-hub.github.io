@@ -366,18 +366,14 @@ footer{
     <div class="container">
         <a href="index.html" class="back-link">Back to home</a>
         <h1 class="page-title">Projects</h1>
-        <p class="page-subtitle">
-            A collection of engineering projects spanning electromechanical design,
-            control systems, and manufacturing.
-        </p>
     </div>
 </div>
 
 <!-- JUMP NAV -->
 
 <div class="project-index">
-    <a href="#battery" class="index-chip">Battery Discharge Station</a>
-    <a href="#controls" class="index-chip">Controls Design</a>
+    <a href="#battery" class="index-chip">Battery Fixture and Discharge Station</a>
+    <a href="#lvbattery" class="index-chip">Controls Design</a>
     <a href="#manufacturing" class="index-chip">Manufacturing Project</a>
 </div>
 
@@ -395,38 +391,29 @@ footer{
             <div class="project-body">
                 <h4>Overview</h4>
                 <p>
-                    Designed and built a high-power battery discharge station for safely cycling
-                    lithium-ion battery packs. The system supports variable load profiles,
-                    real-time telemetry, and automated shutdown on fault conditions.
+                    I am currently designing and fabricating thermal runaway test fixtures
+                    and short-circuit-protected battery discharge systems for high-voltage
+                    battery modules. 
                 </p>
 
                 <h4>Design Highlights</h4>
                 <p>
-                    Implemented precharge protection circuitry to limit inrush current on
-                    connection, and integrated remote monitoring via serial communication.
-                    An emergency shutdown relay triggers on overcurrent, overvoltage,
-                    or thermal events.
+                    Implemented precharge protection circuitry to limit inrush current on first
+                    connection. The system incorporates passive protection mechanisms against overcurrent
+                    or overvoltage conditions, along with a manual emergency stop.
                 </p>
 
                 <h4>Outcome</h4>
                 <p>
-                    Successfully discharged and characterized multiple high-capacity battery
-                    packs, providing reliable capacity and internal resistance data.
+                    Successfully designed voltage-agnostic circuitry for battery packs of varying voltages. 
+                    I am currently manufacturing multiple discharge stations that will allow the Battery Safety team
+                    to cycle batteries more efficiently and accelerate battery pack certification.
                 </p>
-
-                <div class="project-meta">
-                    <span class="meta-tag">Power Electronics</span>
-                    <span class="meta-tag">Circuit Design</span>
-                    <span class="meta-tag">Embedded Systems</span>
-                    <span class="meta-tag">Thermal Analysis</span>
-                </div>
             </div>
         </div>
 
         <div class="project-gallery">
-            <img src="images/project1.jpg" alt="Battery station overview">
-            <img src="images/project1.jpg" alt="Circuit detail">
-            <img src="images/project1.jpg" alt="Testing setup">
+            <img src="images/project11.jpg"
         </div>
 
     </div>
@@ -438,7 +425,7 @@ footer{
     <div class="container">
 
         <span class="project-number">02</span>
-        <h2 class="project-title">Controls Design</h2>
+        <h2 class="project-title">Low-Voltage Battery Pack</h2>
 
         <div class="project-layout reverse">
             <img class="project-hero-img" src="images/project2.jpg" alt="Controls Design">
@@ -446,40 +433,14 @@ footer{
             <div class="project-body">
                 <h4>Overview</h4>
                 <p>
-                    Developed and compared PID and LQR control strategies for an inverted
-                    pendulum system, validating performance through both simulation and
-                    hardware experimentation.
+                    I designed the first custom low voltage battery for Carnegie FSAE's electric vehicle. This resulted
+                    in a 48% mass reduction compared to previous packs.
                 </p>
-
-                <h4>Approach</h4>
-                <p>
-                    Derived linearized state-space models and solved the Riccati equation
-                    numerically to compute optimal LQR gains. Simulated closed-loop
-                    response in Julia before deploying to physical hardware.
-                </p>
-
-                <h4>Results</h4>
-                <p>
-                    LQR outperformed hand-tuned PID in settling time and robustness to
-                    disturbances, with quantitative comparisons documented in a written
-                    analysis report.
-                </p>
-
-                <div class="project-meta">
-                    <span class="meta-tag">LQR</span>
-                    <span class="meta-tag">PID</span>
-                    <span class="meta-tag">Julia</span>
-                    <span class="meta-tag">State-Space Modeling</span>
-                    <span class="meta-tag">MATLAB</span>
-                </div>
             </div>
         </div>
 
         <div class="project-gallery">
-            <img src="images/project2.jpg" alt="Pendulum hardware">
-            <img src="images/project2.jpg" alt="Simulation output">
-            <img src="images/project2.jpg" alt="Response plot">
-        </div>
+            <img src="images/project2.jpg"
 
     </div>
 </section>
@@ -498,39 +459,16 @@ footer{
             <div class="project-body">
                 <h4>Overview</h4>
                 <p>
-                    Designed custom mechanical components from concept through fabrication,
-                    using a combination of CNC machining and additive manufacturing to
-                    produce functional hardware.
+                    I worked in a team of 5 to create an automated laundry folder that detected clothing placement,shape, and size, and adjusted
+                    its folding mechanisms accordingly. As sensing lead, I was in charge of optimizing sensor placement, noise reduction,
+                    and software for data processing and decision-making.
                 </p>
-
-                <h4>Process</h4>
-                <p>
-                    Parts were modeled in SolidWorks, tolerance-analyzed for fit, and
-                    manufactured using a 3-axis CNC mill and FDM 3D printing. Post-processing
-                    included surface finishing and assembly verification.
-                </p>
-
-                <h4>Skills Applied</h4>
-                <p>
-                    GD&T for design drawings, CAM toolpath generation, and hands-on
-                    operation of machining equipment. Iterated on designs based on
-                    physical test fit results.
-                </p>
-
-                <div class="project-meta">
-                    <span class="meta-tag">SolidWorks</span>
-                    <span class="meta-tag">CNC Machining</span>
-                    <span class="meta-tag">3D Printing</span>
-                    <span class="meta-tag">GD&T</span>
-                    <span class="meta-tag">CAM</span>
-                </div>
             </div>
         </div>
 
         <div class="project-gallery">
-            <img src="images/project3.jpg" alt="CAD model">
-            <img src="images/project3.jpg" alt="Machined part">
-            <img src="images/project3.jpg" alt="Assembled component">
+            <img src="images/project31.jpg" alt="CAD model">
+            <img src="images/project32.jpg" alt="Final Product">
         </div>
 
     </div>
@@ -539,13 +477,6 @@ footer{
 <!-- FOOTER -->
 
 <footer>
-    <div class="footer-nav">
-        <a href="index.html">Home</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#cad">CAD Gallery</a>
-        <a href="index.html#resume">Resume</a>
-        <a href="index.html#contact">Contact</a>
-    </div>
     © 2026 Ashley Hu
 </footer>
 
