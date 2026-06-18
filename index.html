@@ -130,6 +130,15 @@ nav a{
 .hero-content{
     position:relative;
     z-index:2;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:60px;
+    align-items:center;
+    width:100%;
+}
+
+.hero-text {
+    /* left column */
 }
 
 .hero h1{
@@ -139,10 +148,19 @@ nav a{
 }
 
 .hero p{
-    max-width:650px;
+    max-width:500px;
     font-size:1.2rem;
     margin-bottom:35px;
     line-height:1.7;
+}
+
+.hero-photo {
+    width: 340px;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    flex-shrink: 0;
 }
 
 .buttons{
@@ -206,7 +224,7 @@ nav a{
     box-shadow:var(--shadow);
 }
 
-/* PROJECTS */
+/* PROJECTS PREVIEW */
 
 .projects-grid{
     display:grid;
@@ -220,10 +238,15 @@ nav a{
     overflow:hidden;
     box-shadow:var(--shadow);
     transition:0.3s;
+    text-decoration:none;
+    color:var(--text);
+    display:block;
+    cursor:pointer;
 }
 
 .project-card:hover{
     transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.13);
 }
 
 .project-card img{
@@ -239,6 +262,60 @@ nav a{
 .project-content h3{
     font-size:2rem;
     margin-bottom:10px;
+}
+
+.project-content p {
+    color: #4a6060;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.project-link-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.project-link-hint::after {
+    content: "→";
+    transition: transform 0.2s;
+}
+
+.project-card:hover .project-link-hint::after {
+    transform: translateX(4px);
+}
+
+.section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.view-all-link {
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s;
+}
+
+.view-all-link:hover {
+    gap: 10px;
+}
+
+.view-all-link::after {
+    content: "→";
 }
 
 /* CAD GALLERY */
@@ -355,12 +432,25 @@ footer{
     font-size:3.5rem;
 }
 
+.hero-content {
+    grid-template-columns: 1fr;
+}
+
+.hero-photo {
+    display: none;
+}
+
 .about-grid{
     grid-template-columns:1fr;
 }
 
 .moodboard{
     grid-template-columns:repeat(2,1fr);
+}
+
+.section-header {
+    flex-direction: column;
+    align-items: flex-start;
 }
 }
 
@@ -375,7 +465,7 @@ footer{
 
         <ul>
             <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="projects.html">Projects</a></li>
             <li><a href="#cad">CAD</a></li>
             <li><a href="#resume">Resume</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -384,301 +474,190 @@ footer{
 </nav>
 
 <section class="hero">
-
     <div class="container hero-content">
+        <div class="hero-text">
+            <h1>
+                Ashley Hu <br>
+                Mechanical Engineer
+            </h1>
 
-        <h1>
-            Mechanical<br>
-            Engineer
-        </h1>
+            <p>
+                Hello! Welcome to my portfolio.
+            </p>
 
-        <p>
-            Designing systems that bridge engineering analysis,
-            manufacturing, controls, and innovation.
-            Passionate about battery systems, product design,
-            and turning ideas into real hardware.
-        </p>
-
-        <div class="buttons">
-            <a href="#projects" class="btn btn-primary">
-                View Projects
-            </a>
-
-            <a href="#resume" class="btn btn-secondary">
-                Resume
-            </a>
         </div>
 
+        <img
+            class="hero-photo"
+            src="images/profile1.jpg"
+            alt="Ashley Hu">
     </div>
-
 </section>
 
 <section id="about">
+    <div class="container">
+        <div class="about-grid">
+            <img
+            class="profile-img"
+            src="images/profile2.jpg"
+            alt="Profile">
 
-<div class="container">
+            <div>
+                <h2 class="section-title">
+                    About Me
+                </h2>
 
-    <div class="about-grid">
+                <p>
+                    Hi, I'm Ashley Hu! I was born and raised in central NJ. I recently graduated with a B.S in Mechanical Engineering from Carnegie Mellon University 
+                    with a minor in Computer Science. 
+                </p>
 
-        <img
-        class="profile-img"
-        src="images/profile.jpg"
-        alt="Profile">
+                <br>
 
-        <div>
-
-            <h2 class="section-title">
-                About Me
-            </h2>
-
-            <p>
-                Hi, I'm Ashley. I'm a mechanical engineering
-                student interested in controls,
-                energy systems, advanced manufacturing,
-                and product development.
-            </p>
-
-            <br>
-
-            <p>
-                I enjoy building systems that combine
-                analytical modeling with real-world
-                engineering implementation.
-            </p>
-
-            <div class="tags">
-                <div class="tag">⚙ Design</div>
-                <div class="tag">🔋 Battery Systems</div>
-                <div class="tag">📈 Controls</div>
-                <div class="tag">🛠 Manufacturing</div>
+                <p>
+                    I have professional experience in the aerospace and EV industries. I am passionate about renewable energy and sustainable engineering, with a focus on
+                    electromechanical design and analytical modeling.
+                </p>
             </div>
-
         </div>
-
     </div>
-
-</div>
-
 </section>
 
 <section id="projects">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title" style="margin-bottom:0;">Featured Projects</h2>
+            <a href="projects.html" class="view-all-link">View all projects</a>
+        </div>
 
-<div class="container">
+        <div class="projects-grid">
 
-<h2 class="section-title">
-Featured Projects
-</h2>
+            <a href="projects.html#battery" class="project-card">
+                <img src="images/project11.jpg">
+                <div class="project-content">
+                    <h3>Battery Fixture and Discharge Station</h3>
+                    <p>
+                        I am currently designing and fabricating thermal runaway test fixtures
+                        and short-circuit-protected battery discharge systems for high voltage
+                        battery modules.
+                    </p>
+                    <span class="project-link-hint">See full project</span>
+                </div>
+            </a>
 
-<div class="projects-grid">
+            <a href="projects.html#controls" class="project-card">
+                <img src="images/project2.jpg">
+                <div class="project-content">
+                    <h3>LV Battery</h3>
+                    <p>
+                        I designed the first custom low voltage battery for Carnegie FSAE's electric vehicle. This resulted
+                        in a 48% mass reduction compared to previous packs.
+                    </p>
+                    <span class="project-link-hint">See full project</span>
+                </div>
+            </a>
 
-<div class="project-card">
+            <a href="projects.html#manufacturing" class="project-card">
+                <img src="images/project31.jpg" >
+                <div class="project-content">
+                    <h3>Automatic Laundry Folder, Senior Capstone</h3>
+                    <p>
+                        I worked in a team of 5 to create an automated laundry folder that detected clothing placement,shape, and size, and adjusted
+                        its folding mechanisms accordingly. As sensing lead, I was in charge of optimizing sensor placement, noise reduction,
+                        and software for data processing and decision-making.
+                    </p>
+                    <span class="project-link-hint">See full project</span>
+                </div>
+            </a>
 
-<img src="images/project1.jpg">
-
-<div class="project-content">
-<h3>Battery Discharge Station</h3>
-
-<p>
-Designed a high-power battery
-discharge system featuring
-precharge protection, remote
-monitoring, and emergency shutdown.
-</p>
-
-</div>
-</div>
-
-<div class="project-card">
-
-<img src="images/project2.jpg">
-
-<div class="project-content">
-<h3>Controls Design</h3>
-
-<p>
-Developed PID and LQR control
-strategies and validated
-performance through simulation
-and experimentation.
-</p>
-
-</div>
-</div>
-
-<div class="project-card">
-
-<img src="images/project3.jpg">
-
-<div class="project-content">
-<h3>Manufacturing Project</h3>
-
-<p>
-Designed and fabricated custom
-components using CNC machining
-and additive manufacturing.
-</p>
-
-</div>
-</div>
-
-</div>
-
-</div>
-
+        </div>
+    </div>
 </section>
 
-<section id="cad">
-
-<div class="container">
-
-<h2 class="section-title">
-CAD Gallery
-</h2>
-
-<div class="gallery">
-
-<img src="images/cad1.jpg">
-<img src="images/cad2.jpg">
-<img src="images/cad3.jpg">
-<img src="images/cad4.jpg">
-
-</div>
-
-</div>
-
-</section>
 
 <section>
+    <div class="container">
+        <h2 class="section-title">
+            Skills
+        </h2>
 
-<div class="container">
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>SolidWorks</h3>
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width:95%"></div>
+                </div>
+            </div>
 
-<h2 class="section-title">
-Skills
-</h2>
+            <div class="skill-card">
+                <h3>FEA</h3>
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width:85%"></div>
+                </div>
+            </div>
 
-<div class="skills-grid">
+            <div class="skill-card">
+                <h3>MATLAB</h3>
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width:90%"></div>
+                </div>
+            </div>
 
-<div class="skill-card">
-<h3>SolidWorks</h3>
-<div class="skill-bar">
-<div class="skill-fill" style="width:95%"></div>
-</div>
-</div>
-
-<div class="skill-card">
-<h3>FEA</h3>
-<div class="skill-bar">
-<div class="skill-fill" style="width:85%"></div>
-</div>
-</div>
-
-<div class="skill-card">
-<h3>MATLAB</h3>
-<div class="skill-bar">
-<div class="skill-fill" style="width:90%"></div>
-</div>
-</div>
-
-<div class="skill-card">
-<h3>Manufacturing</h3>
-<div class="skill-bar">
-<div class="skill-fill" style="width:92%"></div>
-</div>
-</div>
-
-</div>
-
-</div>
-
+            <div class="skill-card">
+                <h3>Manufacturing</h3>
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width:92%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<section>
-
-<div class="container">
-
-<h2 class="section-title">
-Design Process
-</h2>
-
-<div class="moodboard">
-
-<img src="images/mood1.jpg">
-<img src="images/mood2.jpg">
-<img src="images/mood3.jpg">
-<img src="images/mood4.jpg">
-
-</div>
-
-</div>
-
-</section>
 
 <section id="resume">
+    <div class="container">
+        <div class="resume-card">
+            <h2 class="section-title">
+                Resume
+            </h2>
 
-<div class="container">
+            <p>
+                Download my complete resume
+                for education, experience,
+                and technical skills.
+            </p>
 
-<div class="resume-card">
-
-<h2 class="section-title">
-Resume
-</h2>
-
-<p>
-Download my complete resume
-for education, experience,
-and technical skills.
-</p>
-
-<a
-class="btn btn-primary"
-href="resume.pdf"
-target="_blank">
-
-Download Resume
-
-</a>
-
-</div>
-
-</div>
-
+            <a
+            class="btn btn-primary"
+            href="resume.pdf"
+            target="_blank">
+                Download Resume
+            </a>
+        </div>
+    </div>
 </section>
 
 <section id="contact">
+    <div class="container contact">
+        <h2 class="section-title">
+            Let's Build Something.
+        </h2>
 
-<div class="container contact">
+        <p>
+            Feel free to reach out regarding
+            engineering opportunities,
+            collaborations, or projects.
+        </p>
 
-<h2 class="section-title">
-Let's Build Something.
-</h2>
-
-<p>
-Feel free to reach out regarding
-engineering opportunities,
-collaborations, or projects.
-</p>
-
-<div class="contact-links">
-
-<a href="mailto:your@email.com">
-Email
-</a>
-
-<a href="#">
-LinkedIn
-</a>
-
-<a href="#">
-GitHub
-</a>
-
-</div>
-
-</div>
-
+        <div class="contact-links">
+            <a href="ashleyhu2004@gmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/ashley-hu-cmu2026/">LinkedIn</a>
+        </div>
+    </div>
 </section>
 
 <footer>
-© 2026 Ashley Hu
+    © 2026 Ashley Hu
 </footer>
 
 </body>

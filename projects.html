@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Projects | Ashley Hu</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#eef7f4;
+    --card:#ffffff;
+    --blue:#d8eef3;
+    --green:#d8f0df;
+    --text:#263535;
+    --accent:#6f9188;
+    --shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    color:var(--text);
+    background:linear-gradient(
+        180deg,
+        #f8fffd 0%,
+        #eef7f4 100%
+    );
+    overflow-x:hidden;
+}
+
+h1,h2,h3,h4{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:0 10%;
+}
+
+/* NAV */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,0.7);
+    z-index:1000;
+    padding:18px 10%;
+}
+
+.nav-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-weight:600;
+    text-decoration:none;
+    color:var(--text);
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--text);
+}
+
+/* PAGE HEADER */
+
+.page-header {
+    padding: 160px 10% 80px;
+    position: relative;
+}
+
+.page-header::before {
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:radial-gradient(
+        circle,
+        rgba(216,238,243,0.8),
+        transparent 70%
+    );
+    top:-100px;
+    right:-100px;
+    pointer-events:none;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    margin-bottom: 30px;
+    transition: gap 0.2s;
+}
+
+.back-link:hover {
+    gap: 12px;
+}
+
+.back-link::before {
+    content: "←";
+}
+
+.page-title {
+    font-size: 4.5rem;
+    line-height: 1;
+    margin-bottom: 18px;
+}
+
+.page-subtitle {
+    font-size: 1.1rem;
+    color: #4a6060;
+    max-width: 550px;
+    line-height: 1.7;
+}
+
+/* PROJECT INDEX (sticky jump nav) */
+
+.project-index {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 0 10% 60px;
+}
+
+.index-chip {
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: white;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.index-chip:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* PROJECT SECTIONS */
+
+.project-section {
+    padding: 80px 10%;
+    border-top: 1px solid rgba(111,145,136,0.15);
+}
+
+.project-section:first-of-type {
+    border-top: none;
+}
+
+.project-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.project-title {
+    font-size: 3.2rem;
+    line-height: 1.05;
+    margin-bottom: 30px;
+}
+
+.project-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+    margin-bottom: 40px;
+}
+
+.project-layout.reverse {
+    direction: rtl;
+}
+
+.project-layout.reverse > * {
+    direction: ltr;
+}
+
+.project-hero-img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    display: block;
+}
+
+.project-body h4 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    margin-top: 28px;
+}
+
+.project-body h4:first-child {
+    margin-top: 0;
+}
+
+.project-body p {
+    line-height: 1.8;
+    color: #3a5252;
+    margin-bottom: 8px;
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.meta-tag {
+    background: white;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    box-shadow: var(--shadow);
+    color: var(--accent);
+}
+
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.project-gallery img {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    object-fit: cover;
+    height: 180px;
+    transition: 0.3s;
+}
+
+.project-gallery img:hover {
+    transform: scale(1.03);
+}
+
+.project-gallery.two-col {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.project-gallery img.tall {
+    height: 240px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:60px 10% 40px;
+    opacity:0.7;
+    border-top: 1px solid rgba(111,145,136,0.15);
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.page-title {
+    font-size: 3rem;
+}
+
+.project-layout {
+    grid-template-columns: 1fr;
+}
+
+.project-layout.reverse {
+    direction: ltr;
+}
+
+.project-gallery {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.project-title {
+    font-size: 2.4rem;
+}
+}
+
+@media(max-width:600px){
+
+.project-gallery {
+    grid-template-columns: 1fr;
+}
+
+.page-title {
+    font-size: 2.5rem;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-content">
+        <a class="logo" href="index.html">Ashley Hu</a>
+
+        <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="index.html#cad">CAD</a></li>
+            <li><a href="index.html#resume">Resume</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- PAGE HEADER -->
+
+<div class="page-header">
+    <div class="container">
+        <a href="index.html" class="back-link">Back to home</a>
+        <h1 class="page-title">Projects</h1>
+        <p class="page-subtitle">
+            A collection of engineering projects spanning electromechanical design,
+            control systems, and manufacturing.
+        </p>
+    </div>
+</div>
+
+<!-- JUMP NAV -->
+
+<div class="project-index">
+    <a href="#battery" class="index-chip">Battery Discharge Station</a>
+    <a href="#controls" class="index-chip">Controls Design</a>
+    <a href="#manufacturing" class="index-chip">Manufacturing Project</a>
+</div>
+
+<!-- PROJECT 01 -->
+
+<section class="project-section" id="battery">
+    <div class="container">
+
+        <span class="project-number">01</span>
+        <h2 class="project-title">Battery Discharge Station</h2>
+
+        <div class="project-layout">
+            <img class="project-hero-img" src="images/project1.jpg" alt="Battery Discharge Station">
+
+            <div class="project-body">
+                <h4>Overview</h4>
+                <p>
+                    Designed and built a high-power battery discharge station for safely cycling
+                    lithium-ion battery packs. The system supports variable load profiles,
+                    real-time telemetry, and automated shutdown on fault conditions.
+                </p>
+
+                <h4>Design Highlights</h4>
+                <p>
+                    Implemented precharge protection circuitry to limit inrush current on
+                    connection, and integrated remote monitoring via serial communication.
+                    An emergency shutdown relay triggers on overcurrent, overvoltage,
+                    or thermal events.
+                </p>
+
+                <h4>Outcome</h4>
+                <p>
+                    Successfully discharged and characterized multiple high-capacity battery
+                    packs, providing reliable capacity and internal resistance data.
+                </p>
+
+                <div class="project-meta">
+                    <span class="meta-tag">Power Electronics</span>
+                    <span class="meta-tag">Circuit Design</span>
+                    <span class="meta-tag">Embedded Systems</span>
+                    <span class="meta-tag">Thermal Analysis</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-gallery">
+            <img src="images/project1.jpg" alt="Battery station overview">
+            <img src="images/project1.jpg" alt="Circuit detail">
+            <img src="images/project1.jpg" alt="Testing setup">
+        </div>
+
+    </div>
+</section>
+
+<!-- PROJECT 02 -->
+
+<section class="project-section" id="controls">
+    <div class="container">
+
+        <span class="project-number">02</span>
+        <h2 class="project-title">Controls Design</h2>
+
+        <div class="project-layout reverse">
+            <img class="project-hero-img" src="images/project2.jpg" alt="Controls Design">
+
+            <div class="project-body">
+                <h4>Overview</h4>
+                <p>
+                    Developed and compared PID and LQR control strategies for an inverted
+                    pendulum system, validating performance through both simulation and
+                    hardware experimentation.
+                </p>
+
+                <h4>Approach</h4>
+                <p>
+                    Derived linearized state-space models and solved the Riccati equation
+                    numerically to compute optimal LQR gains. Simulated closed-loop
+                    response in Julia before deploying to physical hardware.
+                </p>
+
+                <h4>Results</h4>
+                <p>
+                    LQR outperformed hand-tuned PID in settling time and robustness to
+                    disturbances, with quantitative comparisons documented in a written
+                    analysis report.
+                </p>
+
+                <div class="project-meta">
+                    <span class="meta-tag">LQR</span>
+                    <span class="meta-tag">PID</span>
+                    <span class="meta-tag">Julia</span>
+                    <span class="meta-tag">State-Space Modeling</span>
+                    <span class="meta-tag">MATLAB</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-gallery">
+            <img src="images/project2.jpg" alt="Pendulum hardware">
+            <img src="images/project2.jpg" alt="Simulation output">
+            <img src="images/project2.jpg" alt="Response plot">
+        </div>
+
+    </div>
+</section>
+
+<!-- PROJECT 03 -->
+
+<section class="project-section" id="manufacturing">
+    <div class="container">
+
+        <span class="project-number">03</span>
+        <h2 class="project-title">Manufacturing Project</h2>
+
+        <div class="project-layout">
+            <img class="project-hero-img" src="images/project3.jpg" alt="Manufacturing Project">
+
+            <div class="project-body">
+                <h4>Overview</h4>
+                <p>
+                    Designed custom mechanical components from concept through fabrication,
+                    using a combination of CNC machining and additive manufacturing to
+                    produce functional hardware.
+                </p>
+
+                <h4>Process</h4>
+                <p>
+                    Parts were modeled in SolidWorks, tolerance-analyzed for fit, and
+                    manufactured using a 3-axis CNC mill and FDM 3D printing. Post-processing
+                    included surface finishing and assembly verification.
+                </p>
+
+                <h4>Skills Applied</h4>
+                <p>
+                    GD&T for design drawings, CAM toolpath generation, and hands-on
+                    operation of machining equipment. Iterated on designs based on
+                    physical test fit results.
+                </p>
+
+                <div class="project-meta">
+                    <span class="meta-tag">SolidWorks</span>
+                    <span class="meta-tag">CNC Machining</span>
+                    <span class="meta-tag">3D Printing</span>
+                    <span class="meta-tag">GD&T</span>
+                    <span class="meta-tag">CAM</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-gallery">
+            <img src="images/project3.jpg" alt="CAD model">
+            <img src="images/project3.jpg" alt="Machined part">
+            <img src="images/project3.jpg" alt="Assembled component">
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#cad">CAD Gallery</a>
+        <a href="index.html#resume">Resume</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+    © 2026 Ashley Hu
+</footer>
+
+</body>
+</html>
